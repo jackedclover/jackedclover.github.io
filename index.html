@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- FAVICON -->
+<link rel="icon" type="image/png" sizes="512x512" href="https://res.cloudinary.com/arya1/image/upload/v1746436357/FAVICON-512%C3%97512.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://res.cloudinary.com/arya1/image/upload/v1746436491/FAVICON-192%C3%97192.png">
+<link rel="apple-touch-icon" href="https://res.cloudinary.com/arya1/image/upload/v1746436637/APPLE-TOUCH-ICON.png">
+<meta name="theme-color" content="#34BB78">
+  <title>SHELF</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@1,600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #111;
+      scroll-behavior: smooth;
+    }
+    .montserrat {
+      font-family: 'Montserrat', sans-serif;
+    }
+    .alegreya-highlight {
+      font-family: 'Alegreya', serif;
+      font-style: italic;
+      font-weight: 600;
+    }
+    .highlight-big {
+      font-size: 1.2em;
+    }
+    .happiness-green {
+      color: #34BB78;
+    }
+    .container {
+      max-width: 1200px;
+      padding: 2rem 1rem;
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+    .navbar {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 1rem;
+    }
+.nav-logo {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: #34BB78;
+  text-transform: uppercase;
+}
+    .nav-menu {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .nav-menu a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #111;
+      font-size: 0.95rem;
+    }
+.download-btn {
+  background-color: #34BB78;
+  color: #fff !important;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+    .download-btn:hover {
+      background-color: #2ea76a;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: absolute;
+        top: 60px;
+        right: 1rem;
+        background: #fff;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        flex-direction: column;
+        display: none;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+      }
+      .nav-menu.active {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      padding: 3rem 1rem;
+      background: #fff;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+    .hero-text {
+      flex: 1;
+    }
+    .hero-text h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+    .hero-subtext {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 1.5rem;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 12px;
+    }
+    @media (min-width: 768px) {
+      .hero-content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .hero-text h1 {
+        font-size: 3rem;
+      }
+    }
+    .cta-buttons {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    @media(min-width: 480px) {
+      .cta-buttons {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+    .cta-buttons a {
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 200px;
+    }
+    .playstore {
+      background-color: #34BB78;
+      color: #fff;
+    }
+    .playstore:hover {
+      background-color: #2ea76a;
+    }
+    .appstore {
+      background-color: #f1f1f1;
+      color: #111;
+      border: 1px solid #ccc;
+    }
+    .appstore:hover {
+      background-color: #e5e5e5;
+    }
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* DIVIDER SECTION */
+    .divider-section {
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      background-color: #fafafa;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    .divider-section p {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #777;
+    }
+
+    /* WHY CHOOSE US */
+    .why-choose-us {
+      background: #fff;
+      padding: 4rem 1rem;
+    }
+    .section-label {
+      text-transform: uppercase;
+      color: #aaa;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .section-heading {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      color: #111;
+      margin-bottom: 2.5rem;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media(min-width: 768px) {
+      .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .benefit-card {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .benefit-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #444;
+    }
+    .benefit-lead {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #111;
+    }
+    .benefit-desc {
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .benefit-points {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 1rem;
+    }
+    .benefit-points li {
+      font-size: 0.9rem;
+      color: #444;
+      margin-bottom: 0.5rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+    .tick-icon {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .minimal-btn {
+      padding: 0.6rem 1.5rem;
+      border: 1px solid #34BB78;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #34BB78;
+      width: fit-content;
+      margin-top: auto;
+      transition: all 0.3s ease;
+    }
+    .minimal-btn:hover {
+      background: #34BB78;
+      color: #fff;
+    }
+
+    .footer-featured {
+      background-color: #fdfdfd;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      padding: 2.5rem 1rem;
+    }
+    .feature-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+    }
+    .feature-text h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .experience-btn {
+      background-color: #34BB78;
+      color: #fff;
+      padding: 0.75rem 1.75rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .experience-btn:hover {
+      background-color: #2ea76a;
+    }
+    @media(min-width: 768px) {
+      .feature-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+      .feature-text h3 {
+        font-size: 2rem;
+      }
+    }
+    footer {
+      background: #fff;
+      color: #666;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+    }
+    footer a {
+      color: #111;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">SHELF</div>
+      <div class="nav-menu">
+        <a href="#why-choose-us">Why Us</a>
+        <a href="#download-app" class="download-btn">Download App</a>
+      </div>
+      <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero-section" id="download-app">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1 class="montserrat">Your cravings,<br><span class="happiness-green">instantly satisfied</span></h1>
+        <p class="hero-subtext">Explore local favorites and discover new flavors, all in one place.</p>
+        <div class="cta-buttons">
+          <a href="#" class="playstore">
+            <img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/google-play.png" alt="Play Store" />
+            Get it on Play Store
+          </a>
+          <a href="#" class="appstore">
+            <img class="icon" src="https://img.icons8.com/ios-filled/50/000000/mac-os.png" alt="App Store" />
+            Get it on App Store
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://res.cloudinary.com/arya1/image/upload/v1746442851/IMG3.jpg" alt="Hero Food" />
+      </div>
+    </div>
+  </header>
+
+  <section class="divider-section">
+    <p>why pay more? Enjoy the same delicious food on SHELF and keep up to 80% in your pocket*</p>
+  </section>
+
+  <section class="why-choose-us" id="why-choose-us">
+    <div class="container">
+      <h4 class="section-label">WHY CHOOSE US?</h4>
+      <h2 class="section-heading montserrat">reasons why<br>we can be friends!</h2>
+      <div class="benefits-grid">
+        <!-- Consumers -->
+        <div class="benefit-card">
+          <h3>01 For Consumers</h3>
+          <p class="benefit-lead">We deliver, you enjoy!</p>
+          <p class="benefit-desc">Experience a world of convenience like never before, where everything you need is just a few taps away.</p>
+          <ul class="benefit-points">
+            <li><svg class="tick-icon" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Effortless ordering and fast delivery</li>
+            <li><svg class="tick-icon" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>A wide range of services at your fingertips</li>
+            <li><svg class="tick-icon" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Enjoy affordable delight at home</li>
+          </ul>
+          <a href="#" class="minimal-btn">Let's be friends →</a>
+        </div>
+        <!-- Merchants -->
+        <div class="benefit-card">
+          <h3>02 For Merchants</h3>
+          <p class="benefit-lead">Let the world enjoy your flavors</p>
+          <p class="benefit-desc">Partner with us to unlock new opportunities and thrive digitally — with <strong>zero commission fees</strong>.</p>
+          <ul class="benefit-points">
+            <li><svg class="tick-icon" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Reach more customers instantly</li>
+            <li><svg class="tick-icon" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Grow your business efficiently</li>
+            <li><svg class="tick-icon" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Tools & support to scale up</li>
+          </ul>
+          <a href="#" class="minimal-btn">Become a Merchant →</a>
+        </div>
+        <!-- Riders -->
+        <div class="benefit-card">
+          <h3>03 For Riders</h3>
+          <p class="benefit-lead">Flexibility meets opportunity</p>
+          <p class="benefit-desc">Join our delivery network and earn on your own terms — anytime, anywhere.</p>
+          <ul class="benefit-points">
+            <li><svg class="tick-icon" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Flexible earnings with a rider-first approach</li>
+            <li><svg class="tick-icon" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Constant delivery opportunities</li>
+            <li><svg class="tick-icon" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Be part of a supportive community</li>
+          </ul>
+          <a href="#" class="minimal-btn">Become a SHELF Rider →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer-featured">
+    <div class="container feature-content">
+      <div class="feature-text">
+        <h3 class="montserrat">Delivering <span class="alegreya-highlight happiness-green highlight-big">Happiness</span><br />to your Doorstep</h3>
+      </div>
+      <div>
+        <a href="#download-app" class="experience-btn">Experience SHELF Today</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SHELF  |  all rights reserved.</p>
+    <p>made for all. <a href="#">Privacy Policy</a> | <a href="#">Terms</a></p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-menu').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
